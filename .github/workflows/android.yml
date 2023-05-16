@@ -24,9 +24,17 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    - uses: yanzay/notify-telegram@v0.1.0
-        if: always()
-        with:
-          chat: ${{ -1001299618498 }} # user id or channel name secret
-          token: ${{ 1715455171:AAEWxaYOPq29uaZb_FcrqJk6SzWr_QiA2Ew }} # token secret
-          status: ${{ job.status }} # do not modify this line
+      # Start create debug apk artifact
+    - name: Upload APK
+      uses: actions/upload-artifact@v2
+      with:
+        name: appDebugBuild
+        path: app/build/outputs/apk/debug/app-debug.apk
+
+      # Start notify telegram bot
+    - name: Notify Telegram
+      uses: yanzay/notify-telegram@v0.1.0
+      with:
+        chat: -1001299618498 # Get chat id using terminal: curl https://api.telegram.org/bot{bot_token}/getUpdates
+        token: 1715455171:AAEWxaYOPq29uaZb_FcrqJk6SzWr_QiA2Ew # Use Telegram @@BotFather
+        status: ${{ job.status }} # do not modify this line
