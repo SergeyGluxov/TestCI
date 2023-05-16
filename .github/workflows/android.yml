@@ -35,7 +35,7 @@ jobs:
       - name: send photo message
         uses: appleboy/telegram-action@master
         with:
-            to: -1001299618498 # Get chat id using terminal: curl https://api.telegram.org/bot{bot_token}/getUpdates
-            token: 1715455171:AAEWxaYOPq29uaZb_FcrqJk6SzWr_QiA2Ew # Use Telegram @@BotFather
-            status: ${{ job.status }} # do not modify this line
-            document: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
+          to: -1001299618498
+          token: 1715455171:AAEWxaYOPq29uaZb_FcrqJk6SzWr_QiA2Ew
+          status: ${{ job.status }}
+          document: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
