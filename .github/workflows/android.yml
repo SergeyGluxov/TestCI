@@ -35,6 +35,6 @@ jobs:
       - name: Notify Telegram
         uses: yanzay/notify-telegram@v0.1.0
         with:
-          chat: -1001299618498 # Get chat id using terminal: curl https://api.telegram.org/bot{bot_token}/getUpdates
+            chat: -1001299618498 # Get chat id using terminal: curl https://api.telegram.org/bot{bot_token}/getUpdates
             token: 1715455171:AAEWxaYOPq29uaZb_FcrqJk6SzWr_QiA2Ew # Use Telegram @@BotFather
             status: ${{ job.status }} # do not modify this line
